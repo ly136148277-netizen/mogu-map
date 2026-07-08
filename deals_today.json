@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09 01:35",
+  "updated": "2026-07-09 01:41",
   "city": "徐州",
   "center": {
     "lng": 117.184,
@@ -11,70 +11,80 @@
       "title": "2026年徐州中高考生免费优惠活动汇总",
       "link": "http://xz.bendibao.com/edu/202669/72773.shtm",
       "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
+      "poi_name": "徐州环球港",
+      "address": "徐州市经济技术开发区",
+      "lng": 117.32,
+      "lat": 34.275,
       "source": "徐州本地宝·资讯"
     },
     {
-      "title": "2024徐州装修补贴申请材料",
-      "link": "http://xz.bendibao.com/gouwu/20241211/67106.shtm",
-      "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
-      "source": "徐州本地宝·购物优惠"
+      "title": "华为 FreeClip 2 耳夹式多单元动圈蓝牙耳机 摩登黑 Type-C 学生优惠 1083.6元",
+      "link": "https://www.smzdm.com/p/178239572/",
+      "category": "全国羊毛",
+      "poi_name": "徐州奥特莱斯",
+      "address": "徐州市泉山区",
+      "lng": 117.14,
+      "lat": 34.24,
+      "source": "什么值得买·优惠精选"
     },
     {
-      "title": "徐州市装修补贴范围和标准",
-      "link": "http://xz.bendibao.com/gouwu/20241211/67105.shtm",
-      "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
-      "source": "徐州本地宝·购物优惠"
-    },
-    {
-      "title": "全国惠民观影消费券淘票票消费券参与平台+时间+流程",
-      "link": "http://xz.bendibao.com/gouwu/20241211/67104.shtm",
-      "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
-      "source": "徐州本地宝·购物优惠"
-    },
-    {
-      "title": "猫眼娱乐惠民观影消费券领取指南（附流程图）",
-      "link": "http://xz.bendibao.com/gouwu/20241211/67103.shtm",
-      "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
-      "source": "徐州本地宝·购物优惠"
-    },
-    {
-      "title": "全国惠民观影消费券云闪付活动时间+规则+入口",
-      "link": "http://xz.bendibao.com/gouwu/20241211/67102.shtm",
-      "category": "徐州本地",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
-      "source": "徐州本地宝·购物优惠"
+      "title": "皇家小虎 经典烤肠牛肉卷蛋挞生鲜美食 任选5件组合装",
+      "link": "http://www.zdzdm.com/p/138901",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "真的值得买"
     },
     {
       "title": "美团外卖，有效期至2026-12-31",
       "link": "http://www.0818tuan.com/quan/2022-03-15/241.html",
       "category": "全国羊毛",
-      "poi_name": "徐州市政府(市中心参考)",
-      "address": "徐州市云龙区",
-      "lng": 117.184,
-      "lat": 34.261,
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·优惠券"
+    },
+    {
+      "title": "美团可叠加红包，有效期至2026-12-31",
+      "link": "http://www.0818tuan.com/quan/2019-10-11/232.html",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·优惠券"
+    },
+    {
+      "title": "饿了么消费券，有效期至2026-12-31",
+      "link": "http://www.0818tuan.com/quan/2022-03-15/243.html",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·优惠券"
+    },
+    {
+      "title": "美团霸王餐，有效期至2026-12-31",
+      "link": "http://www.0818tuan.com/quan/2022-03-15/242.html",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·优惠券"
+    },
+    {
+      "title": "美团-美团酒店券，有效期至2026-12-31",
+      "link": "http://www.0818tuan.com/quan/2022-03-15/237.html",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
       "source": "0818团·优惠券"
     }
   ]
