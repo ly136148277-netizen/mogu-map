@@ -37,6 +37,32 @@
       text-align: center; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
     #toast.show { display: block; }
+    #sheet-mask {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 10000;
+    }
+    #sheet-mask.show { display: block; }
+    #sheet {
+      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10001;
+      background: #fff; border-radius: 14px 14px 0 0; padding: 20px 18px calc(20px + env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 24px rgba(0,0,0,.12); transform: translateY(100%);
+      transition: transform .25s ease;
+    }
+    #sheet.show { display: block; transform: translateY(0); }
+    #sheet p { font-size: 15px; line-height: 1.6; color: #333; margin-bottom: 16px; }
+    #sheet .sheet-url {
+      font-size: 12px; color: #888; word-break: break-all; background: #f5f6fa;
+      padding: 8px 10px; border-radius: 8px; margin-bottom: 16px; max-height: 60px; overflow: hidden;
+    }
+    #sheet .sheet-actions { display: flex; gap: 10px; }
+    #sheet .btn {
+      flex: 1; border: none; border-radius: 10px; padding: 12px; font-size: 15px; cursor: pointer;
+    }
+    #sheet .btn-primary { background: #1677ff; color: #fff; }
+    #sheet .btn-ghost { background: #f0f0f0; color: #333; }
+    .deal-taokouling {
+      margin-top: 6px; background: #fff7e6; border: 1px solid #ffd591; color: #d46b08;
+      border-radius: 8px; padding: 6px 10px; font-size: 12px; cursor: pointer; width: 100%; text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -48,6 +74,15 @@
   <div id="map"></div>
   <div id="list"><h2>附近优惠</h2><div id="deal-list"></div></div>
   <div id="toast" role="status" aria-live="polite"></div>
+  <div id="sheet-mask"></div>
+  <div id="sheet" role="dialog" aria-modal="true">
+    <p id="sheet-msg">💡 微信内禁止跳转，点击确定后复制链接，粘贴到手机自带浏览器即可打开</p>
+    <div id="sheet-url" class="sheet-url"></div>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-ghost" id="sheet-close">关闭</button>
+      <button type="button" class="btn btn-primary" id="sheet-confirm">确定并复制</button>
+    </div>
+  </div>
 
   <script src="map_config.js"></script>
   <script>
@@ -57,6 +92,12 @@
       var map, userPos, markers = [];
       var IN_WECHAT = /MicroMessenger/i.test(navigator.userAgent || "");
       var WECHAT_DIRECT_HOSTS = ["bendibao.com"];
+      var WECHAT_BLOCKED_HOSTS = [
+        "taobao.com", "tmall.com", "jd.com", "3.cn", "pinduoduo.com", "yangkeduo.com",
+        "meituan.com", "dianping.com", "ele.me", "smzdm.com", "zdzdm.com", "0818tuan.com",
+        "douyin.com", "amap.com"
+      ];
+      var pendingCopyUrl = "";
 
       function applyRadius(km) {
         RADIUS_KM = km || 10;
@@ -86,13 +127,50 @@
         try { return new URL(url).hostname.toLowerCase(); } catch (e) { return ""; }
       }
 
-      function canOpenInWeChat(url) {
-        var host = linkHost(url);
+      function hostMatchesList(host, list) {
         if (!host) return false;
-        return WECHAT_DIRECT_HOSTS.some(function (h) {
+        return list.some(function (h) {
           return host === h || host.indexOf("." + h) === host.length - h.length - 1;
         });
       }
+
+      function canOpenInWeChat(url) {
+        return hostMatchesList(linkHost(url), WECHAT_DIRECT_HOSTS);
+      }
+
+      function isBlockedInWeChat(url) {
+        if (!IN_WECHAT) return false;
+        if (canOpenInWeChat(url)) return false;
+        var host = linkHost(url);
+        if (hostMatchesList(host, WECHAT_BLOCKED_HOSTS)) return true;
+        return true;
+      }
+
+      function openSheet(url) {
+        pendingCopyUrl = url;
+        document.getElementById("sheet-url").textContent = url;
+        document.getElementById("sheet-mask").className = "show";
+        document.getElementById("sheet").className = "show";
+      }
+
+      function closeSheet() {
+        pendingCopyUrl = "";
+        document.getElementById("sheet-mask").className = "";
+        document.getElementById("sheet").className = "";
+      }
+
+      document.getElementById("sheet-mask").addEventListener("click", closeSheet);
+      document.getElementById("sheet-close").addEventListener("click", closeSheet);
+      document.getElementById("sheet-confirm").addEventListener("click", function () {
+        var url = pendingCopyUrl;
+        if (!url) { closeSheet(); return; }
+        copyToClipboard(url).then(function () {
+          closeSheet();
+          showToast("✅ 链接已复制，请打开手机浏览器粘贴访问");
+        }).catch(function () {
+          showToast("复制失败，请长按上方链接手动复制");
+        });
+      });
 
       var toastTimer = null;
       function showToast(msg) {
@@ -125,25 +203,49 @@
       function handleDealLinkClick(link) {
         var url = normalizeDealLink(link);
         if (!url) return;
-        copyToClipboard(url).then(function () {
-          showToast("✅ 链接已复制\n请点右上角 ··· → 在浏览器打开 → 粘贴地址栏查看\n（美团/淘宝/值得买等微信内无法直接打开）");
+        if (isBlockedInWeChat(url)) {
+          openSheet(url);
+          return;
+        }
+        window.location.href = url;
+      }
+
+      function handleTaokoulingClick(code) {
+        if (!code) return;
+        copyToClipboard(code).then(function () {
+          showToast("✅ 淘口令/口令已复制，打开对应 APP 即可识别");
         }).catch(function () {
-          showToast("复制失败，请长按手动复制：\n" + url);
+          showToast("复制失败：" + code);
         });
       }
 
-      function renderDealLink(link) {
-        var url = normalizeDealLink(link);
+      function renderDealLink(d) {
+        var url = normalizeDealLink(d.link);
         if (!url) return "";
-        if (IN_WECHAT && !canOpenInWeChat(url)) {
-          return '<div style="margin-top:8px">' +
-            '<button type="button" class="deal-link-copy" data-link="' + escapeHtml(url) + '">复制链接查看 →</button>' +
-            '<div class="deal-link-hint">微信内无法直接打开，一键复制后到浏览器粘贴</div></div>';
+        var html = "";
+        if (IN_WECHAT && isBlockedInWeChat(url)) {
+          html = '<div style="margin-top:8px">' +
+            '<button type="button" class="deal-link-copy" data-link="' + escapeHtml(url) + '">查看详情 →</button>' +
+            '<div class="deal-link-hint">微信内无法直接打开电商/外卖链接</div></div>';
+        } else if (IN_WECHAT && canOpenInWeChat(url)) {
+          html = '<div style="margin-top:8px"><a href="' + escapeHtml(url) + '" rel="noopener">查看详情 →</a></div>';
+        } else {
+          html = '<div style="margin-top:8px"><a href="' + escapeHtml(url) + '" rel="noopener" target="_blank">查看详情 →</a></div>';
         }
-        return '<div style="margin-top:8px"><a href="' + escapeHtml(url) + '" rel="noopener">查看详情 →</a></div>';
+        if (d.taokouling || d.copy_code) {
+          var code = d.taokouling || d.copy_code;
+          html += '<button type="button" class="deal-taokouling" data-code="' + escapeHtml(code) + '">📋 复制淘口令/口令</button>';
+        }
+        return html;
       }
 
       document.getElementById("deal-list").addEventListener("click", function (e) {
+        var tk = e.target.closest(".deal-taokouling");
+        if (tk) {
+          e.preventDefault();
+          handleTaokoulingClick(tk.getAttribute("data-code") || "");
+          return;
+        }
         var btn = e.target.closest(".deal-link-copy");
         if (!btn) return;
         e.preventDefault();
@@ -171,7 +273,7 @@
             '<div class="title">' + escapeHtml(d.title) + '</div>' +
             '<div class="meta"><span class="tag">' + escapeHtml(d.category) + '</span>' +
             '<span class="dist">' + d.distance.toFixed(0) + ' 米</span> · ' + escapeHtml(d.poi_name) + '</div>' +
-            (d.link ? renderDealLink(d.link) : '') +
+            (d.link ? renderDealLink(d) : '') +
             '</div>';
         }).join("");
       }
