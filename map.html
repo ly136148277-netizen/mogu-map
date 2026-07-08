@@ -21,10 +21,22 @@
     .deal-card .meta { font-size: 12px; color: #666; line-height: 1.5; }
     .deal-card .dist { color: #1677ff; font-weight: 600; }
     .deal-card a { color: #1677ff; text-decoration: none; font-size: 13px; }
-    .deal-card a:active { opacity: 0.7; }
+    .deal-card a:active, .deal-link-copy:active { opacity: 0.7; }
+    .deal-link-copy {
+      background: none; border: none; padding: 0; color: #1677ff; font-size: 13px;
+      cursor: pointer; text-align: left;
+    }
+    .deal-link-hint { font-size: 11px; color: #999; margin-top: 4px; }
     .tag { display: inline-block; background: #e6f4ff; color: #1677ff; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
     .empty { text-align: center; color: #999; padding: 32px 16px; font-size: 14px; }
     .error { color: #cf1322; }
+    #toast {
+      display: none; position: fixed; left: 50%; bottom: 72px; transform: translateX(-50%);
+      max-width: 90%; padding: 12px 16px; background: rgba(0, 0, 0, 0.85); color: #fff;
+      font-size: 14px; line-height: 1.55; border-radius: 10px; z-index: 9999;
+      text-align: center; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    #toast.show { display: block; }
   </style>
 </head>
 <body>
@@ -35,6 +47,7 @@
   <div id="status">正在加载地图…</div>
   <div id="map"></div>
   <div id="list"><h2>附近优惠</h2><div id="deal-list"></div></div>
+  <div id="toast" role="status" aria-live="polite"></div>
 
   <script src="map_config.js"></script>
   <script>
@@ -42,6 +55,8 @@
       var cfg = window.MOGU_MAP_CONFIG || {};
       var RADIUS_KM = 10;
       var map, userPos, markers = [];
+      var IN_WECHAT = /MicroMessenger/i.test(navigator.userAgent || "");
+      var WECHAT_DIRECT_HOSTS = ["bendibao.com"];
 
       function applyRadius(km) {
         RADIUS_KM = km || 10;
@@ -67,6 +82,74 @@
         return link;
       }
 
+      function linkHost(url) {
+        try { return new URL(url).hostname.toLowerCase(); } catch (e) { return ""; }
+      }
+
+      function canOpenInWeChat(url) {
+        var host = linkHost(url);
+        if (!host) return false;
+        return WECHAT_DIRECT_HOSTS.some(function (h) {
+          return host === h || host.indexOf("." + h) === host.length - h.length - 1;
+        });
+      }
+
+      var toastTimer = null;
+      function showToast(msg) {
+        var el = document.getElementById("toast");
+        if (!el) return;
+        el.textContent = msg;
+        el.className = "show";
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { el.className = ""; }, 4000);
+      }
+
+      function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        return new Promise(function (resolve, reject) {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy") ? resolve() : reject(new Error("copy failed"));
+          } catch (err) { reject(err); }
+          document.body.removeChild(ta);
+        });
+      }
+
+      function handleDealLinkClick(link) {
+        var url = normalizeDealLink(link);
+        if (!url) return;
+        copyToClipboard(url).then(function () {
+          showToast("✅ 链接已复制\n请点右上角 ··· → 在浏览器打开 → 粘贴地址栏查看\n（美团/淘宝/值得买等微信内无法直接打开）");
+        }).catch(function () {
+          showToast("复制失败，请长按手动复制：\n" + url);
+        });
+      }
+
+      function renderDealLink(link) {
+        var url = normalizeDealLink(link);
+        if (!url) return "";
+        if (IN_WECHAT && !canOpenInWeChat(url)) {
+          return '<div style="margin-top:8px">' +
+            '<button type="button" class="deal-link-copy" data-link="' + escapeHtml(url) + '">复制链接查看 →</button>' +
+            '<div class="deal-link-hint">微信内无法直接打开，一键复制后到浏览器粘贴</div></div>';
+        }
+        return '<div style="margin-top:8px"><a href="' + escapeHtml(url) + '" rel="noopener">查看详情 →</a></div>';
+      }
+
+      document.getElementById("deal-list").addEventListener("click", function (e) {
+        var btn = e.target.closest(".deal-link-copy");
+        if (!btn) return;
+        e.preventDefault();
+        handleDealLinkClick(btn.getAttribute("data-link") || "");
+      });
+
       function haversineKm(lat1, lng1, lat2, lng2) {
         var R = 6371;
         var dLat = (lat2 - lat1) * Math.PI / 180;
@@ -88,8 +171,7 @@
             '<div class="title">' + escapeHtml(d.title) + '</div>' +
             '<div class="meta"><span class="tag">' + escapeHtml(d.category) + '</span>' +
             '<span class="dist">' + d.distance.toFixed(0) + ' 米</span> · ' + escapeHtml(d.poi_name) + '</div>' +
-            (d.link ? '<div style="margin-top:8px"><a href="' +
-              escapeHtml(normalizeDealLink(d.link)) + '" rel="noopener">查看详情 →</a></div>' : '') +
+            (d.link ? renderDealLink(d.link) : '') +
             '</div>';
         }).join("");
       }
@@ -129,7 +211,8 @@
       function run(dealsData, pos) {
         userPos = pos;
         var lat = pos[1], lng = pos[0];
-        setStatus("您的位置已获取 · 显示 " + RADIUS_KM + " 公里内优惠");
+        setStatus("您的位置已获取 · 显示 " + RADIUS_KM + " 公里内优惠" +
+          (IN_WECHAT ? " · 美团/淘宝类请点「复制链接」" : ""));
         map = new AMap.Map("map", { zoom: 14, center: pos, viewMode: "2D" });
         new AMap.Marker({
           position: pos, title: "我的位置",
