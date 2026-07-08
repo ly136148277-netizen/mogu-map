@@ -2,7 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>徐州周边优惠地图 · Mogu AI</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +29,7 @@
 <body>
   <div id="header">
     <h1>🗺️ 徐州周边优惠地图</h1>
-    <p>5 公里内超市 · 商场 · 吃喝玩乐优惠</p>
+    <p id="subtitle">正在加载…</p>
   </div>
   <div id="status">正在加载地图…</div>
   <div id="map"></div>
@@ -39,6 +41,12 @@
       var cfg = window.MOGU_MAP_CONFIG || {};
       var RADIUS_KM = 5;
       var map, userPos, markers = [];
+
+      function applyRadius(km) {
+        RADIUS_KM = km || 5;
+        var sub = document.getElementById("subtitle");
+        if (sub) sub.textContent = RADIUS_KM + " 公里内超市 · 商场 · 吃喝玩乐优惠";
+      }
 
       function setStatus(msg, isError) {
         var el = document.getElementById("status");
@@ -62,7 +70,7 @@
       function renderList(items) {
         var el = document.getElementById("deal-list");
         if (!items.length) {
-          el.innerHTML = '<div class="empty">附近 5 公里内暂无匹配优惠<br/>可扩大范围或稍后再试</div>';
+          el.innerHTML = '<div class="empty">附近 ' + RADIUS_KM + ' 公里内暂无匹配优惠<br/>可扩大范围或稍后再试</div>';
           return;
         }
         items.sort(function (a, b) { return a.distance - b.distance; });
@@ -174,6 +182,7 @@
           return r.json();
         })
         .then(function (dealsData) {
+          applyRadius(dealsData.radius_km);
           loadAmap(function () { startWithDeals(dealsData); });
         })
         .catch(function (err) {
