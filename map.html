@@ -39,11 +39,11 @@
   <script>
     (function () {
       var cfg = window.MOGU_MAP_CONFIG || {};
-      var RADIUS_KM = 5;
+      var RADIUS_KM = 15;
       var map, userPos, markers = [];
 
       function applyRadius(km) {
-        RADIUS_KM = km || 5;
+        RADIUS_KM = km || 15;
         var sub = document.getElementById("subtitle");
         if (sub) sub.textContent = RADIUS_KM + " 公里内超市 · 商场 · 吃喝玩乐优惠";
       }
