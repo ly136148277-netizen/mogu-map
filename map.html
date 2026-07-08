@@ -21,6 +21,7 @@
     .deal-card .meta { font-size: 12px; color: #666; line-height: 1.5; }
     .deal-card .dist { color: #1677ff; font-weight: 600; }
     .deal-card a { color: #1677ff; text-decoration: none; font-size: 13px; }
+    .deal-card a:active { opacity: 0.7; }
     .tag { display: inline-block; background: #e6f4ff; color: #1677ff; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
     .empty { text-align: center; color: #999; padding: 32px 16px; font-size: 14px; }
     .error { color: #cf1322; }
@@ -58,6 +59,14 @@
         return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
       }
 
+      function normalizeDealLink(link) {
+        if (!link) return "";
+        if (link.indexOf("http://") === 0 && link.indexOf("http://localhost") !== 0) {
+          return "https://" + link.slice("http://".length);
+        }
+        return link;
+      }
+
       function haversineKm(lat1, lng1, lat2, lng2) {
         var R = 6371;
         var dLat = (lat2 - lat1) * Math.PI / 180;
@@ -79,7 +88,8 @@
             '<div class="title">' + escapeHtml(d.title) + '</div>' +
             '<div class="meta"><span class="tag">' + escapeHtml(d.category) + '</span>' +
             '<span class="dist">' + d.distance.toFixed(0) + ' 米</span> · ' + escapeHtml(d.poi_name) + '</div>' +
-            (d.link ? '<div style="margin-top:8px"><a href="' + escapeHtml(d.link) + '">查看详情 →</a></div>' : '') +
+            (d.link ? '<div style="margin-top:8px"><a href="' +
+              escapeHtml(normalizeDealLink(d.link)) + '" rel="noopener">查看详情 →</a></div>' : '') +
             '</div>';
         }).join("");
       }
