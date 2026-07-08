@@ -1,11 +1,11 @@
 {
-  "updated": "2026-07-09 01:48",
+  "updated": "2026-07-09 01:50",
   "city": "徐州",
   "center": {
     "lng": 117.184,
     "lat": 34.261
   },
-  "radius_km": 15,
+  "radius_km": 10,
   "deals": [
     {
       "title": "2026年徐州中高考生免费优惠活动汇总",
@@ -168,6 +168,66 @@
       "source": "徐州本地宝·购物优惠"
     },
     {
+      "title": "徐州元旦活动安排汇总2026年",
+      "link": "http://xz.bendibao.com/news/20231214/62538.shtm",
+      "category": "徐州本地",
+      "poi_name": "永辉超市(徐州店)",
+      "address": "徐州市云龙区",
+      "lng": 117.22,
+      "lat": 34.245,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年苏超徐州VS南京比赛期间徐州消费券领取时间+入口",
+      "link": "http://xz.bendibao.com/news/202672/73050.shtm",
+      "category": "徐州本地",
+      "poi_name": "大润发(南关欣欣店)",
+      "address": "徐州市云龙区欣欣路",
+      "lng": 117.245,
+      "lat": 34.235,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年徐州惠民售书消费券有哪些门店活动",
+      "link": "http://xz.bendibao.com/news/202672/73049.shtm",
+      "category": "徐州本地",
+      "poi_name": "铜山万达广场",
+      "address": "徐州市铜山区北京路",
+      "lng": 117.183,
+      "lat": 34.183,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年徐州惠民售书消费券集中活动",
+      "link": "http://xz.bendibao.com/news/202672/73048.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州彭城苏宁广场",
+      "address": "徐州市泉山区",
+      "lng": 117.175,
+      "lat": 34.255,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年苏超徐州VS南京比赛期间徐州消费券活动",
+      "link": "http://xz.bendibao.com/news/202672/73047.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州彭城苏宁广场",
+      "address": "徐州市泉山区",
+      "lng": 117.175,
+      "lat": 34.255,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年徐州第九届淮海书展暨阅读推广和惠民售书集中活动",
+      "link": "http://xz.bendibao.com/news/202672/73046.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州云龙万达广场",
+      "address": "徐州市云龙区和平大道",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
       "title": "00:09 仅限超市补贴32.6亓地区成立 依能西瓜口味果汁气泡水330ml*24罐",
       "link": "http://www.0818tuan.com/xbhd/2717871.html",
       "category": "连锁超市",
@@ -206,6 +266,16 @@
       "lng": 117.192,
       "lat": 34.26,
       "source": "真的值得买"
+    },
+    {
+      "title": "PDD组队互助专区｜请不要发评论区～",
+      "link": "http://www.0818tuan.com/pdd/zudui.php",
+      "category": "全国羊毛",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·实测活动"
     },
     {
       "title": "美团外卖，有效期至2026-12-31",
