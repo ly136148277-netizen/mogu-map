@@ -27,7 +27,7 @@
 <body>
   <div id="header">
     <h1>🗺️ 徐州周边优惠地图</h1>
-    <p>3 公里内超市 · 商场 · 吃喝玩乐优惠</p>
+    <p>5 公里内超市 · 商场 · 吃喝玩乐优惠</p>
   </div>
   <div id="status">正在加载地图…</div>
   <div id="map"></div>
@@ -37,7 +37,7 @@
   <script>
     (function () {
       var cfg = window.MOGU_MAP_CONFIG || {};
-      var RADIUS_KM = 3;
+      var RADIUS_KM = 5;
       var map, userPos, markers = [];
 
       function setStatus(msg, isError) {
@@ -62,7 +62,7 @@
       function renderList(items) {
         var el = document.getElementById("deal-list");
         if (!items.length) {
-          el.innerHTML = '<div class="empty">附近 3 公里内暂无匹配优惠<br/>可扩大范围或稍后再试</div>';
+          el.innerHTML = '<div class="empty">附近 5 公里内暂无匹配优惠<br/>可扩大范围或稍后再试</div>';
           return;
         }
         items.sort(function (a, b) { return a.distance - b.distance; });
