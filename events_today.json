@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11 08:45",
+  "updated": "2026-07-11 08:48",
   "city": "徐州",
   "center": {
     "lng": 117.184,
@@ -8,17 +8,17 @@
   "radius_km": 10,
   "events": [
     {
-      "title": "徐州马拉松2025报名官网入口",
-      "link": "http://xz.bendibao.com/news/2023914/61457.shtm",
-      "event_type": "rally",
-      "event_label": "集会活动",
-      "event_icon": "📢",
-      "marker_color": "#722ed1",
-      "poi_name": "云龙区",
+      "title": "徐州轻微交通事故线上视频快处指南",
+      "link": "http://xz.bendibao.com/live/2025317/67855.shtm",
+      "event_type": "traffic",
+      "event_label": "交通事故",
+      "event_icon": "🚗",
+      "marker_color": "#fa8c16",
+      "poi_name": "丰县",
       "address": "徐州市（标题未精确到地标，仅供参考）",
-      "lng": 117.245,
-      "lat": 34.248,
-      "source": "徐州本地宝·本地资讯"
+      "lng": 116.595,
+      "lat": 34.694,
+      "source": "徐州本地宝·民生"
     }
   ],
   "event_types": {
