@@ -5,48 +5,57 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>徐州周边优惠地图 · Mogu AI</title>
+  <title>徐州周边地图 · 优惠 & 突发 · Mogu AI</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #222; }
     #header { background: linear-gradient(135deg, #1677ff, #0958d9); color: #fff; padding: 14px 16px 12px; }
     #header h1 { font-size: 18px; font-weight: 600; }
     #header p { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+    #tabs { display: flex; gap: 8px; padding: 10px 16px; background: #fff; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+    .tab { border: 1px solid #d9d9d9; background: #fafafa; border-radius: 20px; padding: 6px 14px; font-size: 13px; cursor: pointer; }
+    .tab.active { background: #1677ff; color: #fff; border-color: #1677ff; }
+    #filters { display: none; flex-wrap: wrap; gap: 6px; padding: 8px 16px; background: #fff; border-bottom: 1px solid #eee; }
+    #filters.show { display: flex; }
+    .filter-chip { font-size: 11px; padding: 4px 8px; border-radius: 12px; border: 1px solid #ddd; cursor: pointer; background: #fff; }
+    .filter-chip.off { opacity: 0.45; }
     #status { padding: 10px 16px; font-size: 13px; background: #fff; border-bottom: 1px solid #eee; }
-    #map { width: 100%; height: 52vh; min-height: 280px; background: #e8ecf1; }
+    #map { width: 100%; height: 48vh; min-height: 260px; background: #e8ecf1; }
     #list { padding: 12px 16px 24px; }
     #list h2 { font-size: 15px; margin-bottom: 10px; }
-    .deal-card { background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .deal-card { background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border-left: 4px solid #1677ff; }
+    .deal-card.event { border-left-width: 4px; }
     .deal-card .title { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
     .deal-card .meta { font-size: 12px; color: #666; line-height: 1.5; }
     .deal-card .dist { color: #1677ff; font-weight: 600; }
     .deal-card a { color: #1677ff; text-decoration: none; font-size: 13px; }
     .deal-card a:active, .deal-link-copy:active { opacity: 0.7; }
-    .deal-link-copy {
-      background: none; border: none; padding: 0; color: #1677ff; font-size: 13px;
-      cursor: pointer; text-align: left;
-    }
+    .deal-link-copy { background: none; border: none; padding: 0; color: #1677ff; font-size: 13px; cursor: pointer; text-align: left; }
     .deal-link-hint { font-size: 11px; color: #999; margin-top: 4px; }
     .tag { display: inline-block; background: #e6f4ff; color: #1677ff; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
+    .tag.event { background: #fff1f0; color: #cf1322; }
     .empty { text-align: center; color: #999; padding: 32px 16px; font-size: 14px; }
     .error { color: #cf1322; }
-    #toast {
-      display: none; position: fixed; left: 50%; bottom: 72px; transform: translateX(-50%);
-      max-width: 90%; padding: 12px 16px; background: rgba(0, 0, 0, 0.85); color: #fff;
-      font-size: 14px; line-height: 1.55; border-radius: 10px; z-index: 9999;
-      text-align: center; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    }
+    #toast { display: none; position: fixed; left: 50%; bottom: 72px; transform: translateX(-50%); max-width: 90%; padding: 12px 16px; background: rgba(0,0,0,.85); color: #fff; font-size: 14px; line-height: 1.55; border-radius: 10px; z-index: 9999; text-align: center; }
     #toast.show { display: block; }
+    .legend { font-size: 11px; color: #888; padding: 0 16px 8px; }
   </style>
 </head>
 <body>
   <div id="header">
-    <h1>🗺️ 徐州周边优惠地图</h1>
-    <p id="subtitle">正在加载…</p>
+    <h1>🗺️ 徐州周边地图</h1>
+    <p id="subtitle">优惠 · 交通事故 · 警情 · 火灾 · 急救…</p>
   </div>
-  <div id="status">正在加载地图…</div>
+  <div id="tabs">
+    <button type="button" class="tab active" data-mode="all">全部</button>
+    <button type="button" class="tab" data-mode="deals">🛒 优惠</button>
+    <button type="button" class="tab" data-mode="events">⚠️ 突发</button>
+  </div>
+  <div id="filters" class="show"></div>
+  <div class="legend">* 突发位置根据新闻标题中的区县/地标估算，仅供参考</div>
+  <div id="status">正在加载…</div>
   <div id="map"></div>
-  <div id="list"><h2>附近优惠</h2><div id="deal-list"></div></div>
+  <div id="list"><h2 id="list-title">附近内容</h2><div id="deal-list"></div></div>
   <div id="toast" role="status" aria-live="polite"></div>
 
   <script src="map_config.js"></script>
@@ -54,14 +63,17 @@
     (function () {
       var cfg = window.MOGU_MAP_CONFIG || {};
       var RADIUS_KM = 10;
-      var map, userPos, markers = [];
+      var map, userPos, markers = [], circleMarker = null;
+      var dealsData = { deals: [] }, eventsData = { events: [], event_types: {} };
+      var viewMode = "all";
+      var activeEventTypes = {};
       var IN_WECHAT = /MicroMessenger/i.test(navigator.userAgent || "");
       var WECHAT_DIRECT_HOSTS = ["bendibao.com"];
 
       function applyRadius(km) {
         RADIUS_KM = km || 10;
-        var sub = document.getElementById("subtitle");
-        if (sub) sub.textContent = RADIUS_KM + " 公里内超市 · 商场 · 吃喝玩乐优惠";
+        document.getElementById("subtitle").textContent =
+          RADIUS_KM + " 公里内 · 优惠与突发事件（车祸/警情/火灾/急救等）";
       }
 
       function setStatus(msg, isError) {
@@ -74,7 +86,7 @@
         return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
       }
 
-      function normalizeDealLink(link) {
+      function normalizeLink(link) {
         if (!link) return "";
         if (link.indexOf("http://") === 0 && link.indexOf("http://localhost") !== 0) {
           return "https://" + link.slice("http://".length);
@@ -88,7 +100,6 @@
 
       function canOpenInWeChat(url) {
         var host = linkHost(url);
-        if (!host) return false;
         return WECHAT_DIRECT_HOSTS.some(function (h) {
           return host === h || host.indexOf("." + h) === host.length - h.length - 1;
         });
@@ -97,7 +108,6 @@
       var toastTimer = null;
       function showToast(msg) {
         var el = document.getElementById("toast");
-        if (!el) return;
         el.textContent = msg;
         el.className = "show";
         if (toastTimer) clearTimeout(toastTimer);
@@ -105,40 +115,32 @@
       }
 
       function copyToClipboard(text) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          return navigator.clipboard.writeText(text);
-        }
+        if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
         return new Promise(function (resolve, reject) {
           var ta = document.createElement("textarea");
-          ta.value = text;
-          ta.setAttribute("readonly", "");
+          ta.value = text; ta.setAttribute("readonly", "");
           ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
-          document.body.appendChild(ta);
-          ta.select();
-          try {
-            document.execCommand("copy") ? resolve() : reject(new Error("copy failed"));
-          } catch (err) { reject(err); }
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy") ? resolve() : reject(new Error("copy")); }
+          catch (e) { reject(e); }
           document.body.removeChild(ta);
         });
       }
 
-      function handleDealLinkClick(link) {
-        var url = normalizeDealLink(link);
+      function handleLinkClick(link) {
+        var url = normalizeLink(link);
         if (!url) return;
         copyToClipboard(url).then(function () {
-          showToast("✅ 链接已复制\n请点右上角 ··· → 在浏览器打开 → 粘贴地址栏查看\n（美团/淘宝/值得买等微信内无法直接打开）");
-        }).catch(function () {
-          showToast("复制失败，请长按手动复制：\n" + url);
-        });
+          showToast("✅ 链接已复制\n请点右上角 ··· → 在浏览器打开 → 粘贴地址栏查看");
+        }).catch(function () { showToast("复制失败，请长按手动复制：\n" + url); });
       }
 
-      function renderDealLink(link) {
-        var url = normalizeDealLink(link);
+      function renderLink(link) {
+        var url = normalizeLink(link);
         if (!url) return "";
         if (IN_WECHAT && !canOpenInWeChat(url)) {
-          return '<div style="margin-top:8px">' +
-            '<button type="button" class="deal-link-copy" data-link="' + escapeHtml(url) + '">复制链接查看 →</button>' +
-            '<div class="deal-link-hint">微信内无法直接打开，一键复制后到浏览器粘贴</div></div>';
+          return '<div style="margin-top:8px"><button type="button" class="deal-link-copy" data-link="' +
+            escapeHtml(url) + '">复制链接查看 →</button><div class="deal-link-hint">微信内请复制后到浏览器打开</div></div>';
         }
         return '<div style="margin-top:8px"><a href="' + escapeHtml(url) + '" rel="noopener">查看详情 →</a></div>';
       }
@@ -147,141 +149,195 @@
         var btn = e.target.closest(".deal-link-copy");
         if (!btn) return;
         e.preventDefault();
-        handleDealLinkClick(btn.getAttribute("data-link") || "");
+        handleLinkClick(btn.getAttribute("data-link") || "");
       });
 
       function haversineKm(lat1, lng1, lat2, lng2) {
-        var R = 6371;
-        var dLat = (lat2 - lat1) * Math.PI / 180;
-        var dLng = (lng2 - lng1) * Math.PI / 180;
+        var R = 6371, dLat = (lat2 - lat1) * Math.PI / 180, dLng = (lng2 - lng1) * Math.PI / 180;
         var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
           Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
         return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       }
 
+      function withDistance(items, lat, lng) {
+        return items.map(function (d) {
+          var dist = haversineKm(lat, lng, d.lat, d.lng) * 1000;
+          return Object.assign({}, d, { distance: dist });
+        }).filter(function (d) { return d.distance <= RADIUS_KM * 1000; });
+      }
+
+      function buildFilters() {
+        var box = document.getElementById("filters");
+        var types = eventsData.event_types || {};
+        var keys = Object.keys(types);
+        if (!keys.length) { box.innerHTML = ""; box.className = ""; return; }
+        box.className = "show";
+        box.innerHTML = keys.map(function (k) {
+          var t = types[k];
+          activeEventTypes[k] = true;
+          return '<button type="button" class="filter-chip" data-type="' + k + '">' +
+            escapeHtml(t.icon + " " + t.label) + '</button>';
+        }).join("");
+        box.querySelectorAll(".filter-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var k = chip.getAttribute("data-type");
+            activeEventTypes[k] = !activeEventTypes[k];
+            chip.classList.toggle("off", !activeEventTypes[k]);
+            refreshView();
+          });
+        });
+      }
+
+      function getVisibleItems() {
+        var lat = userPos[1], lng = userPos[0];
+        var deals = withDistance(dealsData.deals || [], lat, lng).map(function (d) {
+          return Object.assign({}, d, { kind: "deal" });
+        });
+        var events = withDistance(eventsData.events || [], lat, lng).filter(function (e) {
+          return activeEventTypes[e.event_type] !== false;
+        }).map(function (e) {
+          return Object.assign({}, e, { kind: "event" });
+        });
+        if (viewMode === "deals") return deals;
+        if (viewMode === "events") return events;
+        return deals.concat(events);
+      }
+
       function renderList(items) {
         var el = document.getElementById("deal-list");
+        var title = document.getElementById("list-title");
+        title.textContent = viewMode === "deals" ? "附近优惠" : viewMode === "events" ? "附近突发" : "附近优惠与突发";
         if (!items.length) {
-          el.innerHTML = '<div class="empty">附近 ' + RADIUS_KM + ' 公里内暂无匹配优惠<br/>可扩大范围或稍后再试</div>';
+          el.innerHTML = '<div class="empty">附近 ' + RADIUS_KM + ' 公里内暂无内容<br/>可切换标签或稍后再试</div>';
           return;
         }
         items.sort(function (a, b) { return a.distance - b.distance; });
         el.innerHTML = items.map(function (d) {
+          if (d.kind === "event") {
+            return '<div class="deal-card event" style="border-left-color:' + escapeHtml(d.marker_color || "#cf1322") + '">' +
+              '<div class="title">' + escapeHtml((d.event_icon || "⚠️") + " " + d.title) + '</div>' +
+              '<div class="meta"><span class="tag event">' + escapeHtml(d.event_label || "突发") + '</span>' +
+              '<span class="dist">' + d.distance.toFixed(0) + ' 米</span> · ' + escapeHtml(d.poi_name) + '</div>' +
+              (d.link ? renderLink(d.link) : '') + '</div>';
+          }
           return '<div class="deal-card">' +
             '<div class="title">' + escapeHtml(d.title) + '</div>' +
-            '<div class="meta"><span class="tag">' + escapeHtml(d.category) + '</span>' +
+            '<div class="meta"><span class="tag">' + escapeHtml(d.category || "优惠") + '</span>' +
             '<span class="dist">' + d.distance.toFixed(0) + ' 米</span> · ' + escapeHtml(d.poi_name) + '</div>' +
-            (d.link ? renderDealLink(d.link) : '') +
-            '</div>';
+            (d.link ? renderLink(d.link) : '') + '</div>';
         }).join("");
       }
 
       function clearMarkers() {
         markers.forEach(function (m) { map.remove(m); });
         markers = [];
+        if (circleMarker) { map.remove(circleMarker); circleMarker = null; }
       }
 
       function showOnMap(items, center) {
         clearMarkers();
         items.forEach(function (d) {
+          var color = d.kind === "event" ? (d.marker_color || "#cf1322") : "#1677ff";
+          var label = d.kind === "event" ? (d.event_icon || "⚠") : d.distance.toFixed(0) + "m";
           var marker = new AMap.Marker({
             position: [d.lng, d.lat],
             title: d.poi_name,
-            label: { content: d.distance.toFixed(0) + "m", direction: "top" }
+            label: { content: label, direction: "top" },
+            content: d.kind === "event"
+              ? '<div style="width:28px;height:28px;border-radius:50%;background:' + color +
+                ';color:#fff;font-size:14px;line-height:28px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.25)">' +
+                escapeHtml(d.event_icon || "!") + '</div>'
+              : undefined
           });
           marker.on("click", function () {
+            var title = d.kind === "event" ? (d.event_icon + " " + d.event_label) : d.title;
             new AMap.InfoWindow({
-              content: '<div style="padding:8px;max-width:220px"><b>' + escapeHtml(d.poi_name) + '</b><br/>' + escapeHtml(d.title) + '<br/><span style="color:#1677ff">' + d.distance.toFixed(0) + '米</span></div>'
+              content: '<div style="padding:8px;max-width:240px"><b>' + escapeHtml(title) + '</b><br/>' +
+                escapeHtml(d.poi_name) + '<br/><span style="color:' + color + '">' + d.distance.toFixed(0) + '米</span></div>'
             }).open(map, [d.lng, d.lat]);
           });
           map.add(marker);
           markers.push(marker);
         });
         if (center) {
-          var circle = new AMap.Circle({
+          circleMarker = new AMap.Circle({
             center: center, radius: RADIUS_KM * 1000,
-            strokeColor: "#1677ff", strokeOpacity: 0.6, fillColor: "#1677ff", fillOpacity: 0.08
+            strokeColor: "#1677ff", strokeOpacity: 0.5, fillColor: "#1677ff", fillOpacity: 0.06
           });
-          map.add(circle);
-          markers.push(circle);
+          map.add(circleMarker);
         }
         if (items.length) map.setFitView(markers, false, [40, 40, 40, 40]);
       }
 
-      function run(dealsData, pos) {
+      function refreshView() {
+        if (!map || !userPos) return;
+        var items = getVisibleItems();
+        renderList(items);
+        showOnMap(items, userPos);
+        setStatus("显示 " + RADIUS_KM + " 公里内 · 优惠 " +
+          withDistance(dealsData.deals || [], userPos[1], userPos[0]).length + " · 突发 " +
+          withDistance(eventsData.events || [], userPos[1], userPos[0]).filter(function (e) {
+            return activeEventTypes[e.event_type] !== false;
+          }).length);
+      }
+
+      function run(pos) {
         userPos = pos;
-        var lat = pos[1], lng = pos[0];
-        setStatus("您的位置已获取 · 显示 " + RADIUS_KM + " 公里内优惠" +
-          (IN_WECHAT ? " · 美团/淘宝类请点「复制链接」" : ""));
         map = new AMap.Map("map", { zoom: 14, center: pos, viewMode: "2D" });
         new AMap.Marker({
           position: pos, title: "我的位置",
           icon: "https://webapi.amap.com/theme/v1.3/markers/n/loc.png"
         }).setMap(map);
-
-        var nearby = (dealsData.deals || []).map(function (d) {
-          var dist = haversineKm(lat, lng, d.lat, d.lng) * 1000;
-          return Object.assign({}, d, { distance: dist });
-        }).filter(function (d) { return d.distance <= RADIUS_KM * 1000; });
-
-        renderList(nearby);
-        showOnMap(nearby, pos);
+        buildFilters();
+        refreshView();
       }
 
-      function fallbackCenter(dealsData) {
-        var c = dealsData.center || { lng: 117.184, lat: 34.261 };
-        setStatus("未授权定位 · 以徐州市中心显示（请允许定位查看距离）");
-        run(dealsData, [c.lng, c.lat]);
+      function fallbackCenter() {
+        var c = dealsData.center || eventsData.center || { lng: 117.184, lat: 34.261 };
+        setStatus("未授权定位 · 以徐州市中心显示");
+        run([c.lng, c.lat]);
       }
 
-      function startWithDeals(dealsData) {
+      function startMap() {
         setStatus("正在获取您的位置…");
-        if (!navigator.geolocation) {
-          fallbackCenter(dealsData);
-          return;
-        }
+        if (!navigator.geolocation) { fallbackCenter(); return; }
         navigator.geolocation.getCurrentPosition(
-          function (pos) { run(dealsData, [pos.coords.longitude, pos.coords.latitude]); },
-          function () { fallbackCenter(dealsData); },
+          function (p) { run([p.coords.longitude, p.coords.latitude]); },
+          function () { fallbackCenter(); },
           { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
         );
       }
 
-      function loadAmap(callback) {
-        if (window.AMap) {
-          callback();
-          return;
-        }
-        if (!cfg.amapKey) {
-          setStatus("地图配置错误：缺少高德 Key，请检查 map_config.js", true);
-          return;
-        }
+      document.getElementById("tabs").addEventListener("click", function (e) {
+        var tab = e.target.closest(".tab");
+        if (!tab) return;
+        viewMode = tab.getAttribute("data-mode");
+        document.querySelectorAll(".tab").forEach(function (t) { t.classList.toggle("active", t === tab); });
+        refreshView();
+      });
+
+      function loadAmap(cb) {
+        if (window.AMap) { cb(); return; }
+        if (!cfg.amapKey) { setStatus("缺少高德 Key", true); return; }
         window._AMapSecurityConfig = { securityJsCode: cfg.securityJsCode || "" };
         var s = document.createElement("script");
         s.src = "https://webapi.amap.com/maps?v=2.0&key=" + encodeURIComponent(cfg.amapKey);
-        s.onload = function () {
-          if (window.AMap) callback();
-          else setStatus("高德地图 SDK 加载失败", true);
-        };
-        s.onerror = function () {
-          setStatus("高德地图加载失败：请在高德控制台将 ly136148277-netizen.github.io 加入域名白名单", true);
-        };
+        s.onload = function () { window.AMap ? cb() : setStatus("高德 SDK 加载失败", true); };
+        s.onerror = function () { setStatus("高德地图加载失败", true); };
         document.head.appendChild(s);
       }
 
-      fetch("deals_today.json?t=" + Date.now())
-        .then(function (r) {
-          if (!r.ok) throw new Error("HTTP " + r.status);
-          return r.json();
-        })
-        .then(function (dealsData) {
-          applyRadius(dealsData.radius_km);
-          loadAmap(function () { startWithDeals(dealsData); });
-        })
-        .catch(function (err) {
-          setStatus("加载优惠数据失败: " + err.message, true);
-          document.getElementById("deal-list").innerHTML = '<div class="empty">无法加载 deals_today.json</div>';
-        });
+      Promise.all([
+        fetch("deals_today.json?t=" + Date.now()).then(function (r) { return r.ok ? r.json() : { deals: [] }; }),
+        fetch("events_today.json?t=" + Date.now()).then(function (r) { return r.ok ? r.json() : { events: [] }; })
+      ]).then(function (res) {
+        dealsData = res[0] || { deals: [] };
+        eventsData = res[1] || { events: [] };
+        applyRadius(dealsData.radius_km || eventsData.radius_km || 10);
+        loadAmap(startMap);
+      }).catch(function (err) {
+        setStatus("加载数据失败: " + err.message, true);
+      });
     })();
   </script>
 </body>

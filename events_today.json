@@ -1,0 +1,79 @@
+{
+  "updated": "2026-07-11 08:37",
+  "city": "徐州",
+  "center": {
+    "lng": 117.184,
+    "lat": 34.261
+  },
+  "radius_km": 10,
+  "events": [
+    {
+      "title": "徐州马拉松2025报名官网入口",
+      "link": "http://xz.bendibao.com/news/2023914/61457.shtm",
+      "event_type": "rally",
+      "event_label": "集会活动",
+      "event_icon": "📢",
+      "marker_color": "#722ed1",
+      "poi_name": "云龙区",
+      "address": "徐州市（标题未精确到地标，仅供参考）",
+      "lng": 117.245,
+      "lat": 34.248,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "徐州马拉松报名网址",
+      "link": "http://xz.bendibao.com/news/202135/49491.shtm",
+      "event_type": "rally",
+      "event_label": "集会活动",
+      "event_icon": "📢",
+      "marker_color": "#722ed1",
+      "poi_name": "睢宁县",
+      "address": "徐州市（标题未精确到地标，仅供参考）",
+      "lng": 117.941,
+      "lat": 33.912,
+      "source": "徐州本地宝·本地资讯"
+    }
+  ],
+  "event_types": {
+    "traffic": {
+      "label": "交通事故",
+      "icon": "🚗",
+      "color": "#fa8c16"
+    },
+    "fight": {
+      "label": "打架斗殴",
+      "icon": "👊",
+      "color": "#f5222d"
+    },
+    "police": {
+      "label": "警情抓捕",
+      "icon": "🚔",
+      "color": "#1677ff"
+    },
+    "fire": {
+      "label": "火灾",
+      "icon": "🔥",
+      "color": "#cf1322"
+    },
+    "rally": {
+      "label": "集会活动",
+      "icon": "📢",
+      "color": "#722ed1"
+    },
+    "medical": {
+      "label": "医疗急救",
+      "icon": "🚑",
+      "color": "#52c41a"
+    },
+    "ambulance": {
+      "label": "救护响应",
+      "icon": "➕",
+      "color": "#13c2c2"
+    },
+    "police_car": {
+      "label": "警车响应",
+      "icon": "🚨",
+      "color": "#2f54eb"
+    }
+  }
+}
