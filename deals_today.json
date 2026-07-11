@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11 08:48",
+  "updated": "2026-07-11 11:00",
   "city": "徐州",
   "center": {
     "lng": 117.184,
@@ -7,6 +7,206 @@
   },
   "radius_km": 10,
   "deals": [
+    {
+      "title": "2024徐州装修补贴申请材料",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67106.shtm",
+      "category": "徐州本地",
+      "poi_name": "永辉超市(徐州店)",
+      "address": "徐州市云龙区",
+      "lng": 117.22,
+      "lat": 34.245,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州市装修补贴范围和标准",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67105.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州苏宁广场",
+      "address": "徐州市鼓楼区淮海东路",
+      "lng": 117.186,
+      "lat": 34.261,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "全国惠民观影消费券淘票票消费券参与平台+时间+流程",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67104.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "猫眼娱乐惠民观影消费券领取指南（附流程图）",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67103.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "全国惠民观影消费券云闪付活动时间+规则+入口",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67102.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "全国惠民观影消费券工商银行参与时间+流程",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67101.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "2024-2025全国惠民观影消费券发放时间+领取平台+金额+使用",
+      "link": "https://xz.bendibao.com/gouwu/20241211/67100.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "2024徐州装修补贴申请咨询电话",
+      "link": "https://xz.bendibao.com/gouwu/20241210/67097.shtm",
+      "category": "徐州本地",
+      "poi_name": "大润发(东关世茂店)",
+      "address": "徐州市云龙区郭庄路99号",
+      "lng": 117.298,
+      "lat": 34.272,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州装修补贴申请流程",
+      "link": "https://xz.bendibao.com/gouwu/20241210/67096.shtm",
+      "category": "徐州本地",
+      "poi_name": "大润发(东关世茂店)",
+      "address": "徐州市云龙区郭庄路99号",
+      "lng": 117.298,
+      "lat": 34.272,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州市装修改造所需物品和材料购置补贴申领指引",
+      "link": "https://xz.bendibao.com/gouwu/20241210/67095.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州苏宁广场",
+      "address": "徐州市鼓楼区淮海东路",
+      "lng": 117.186,
+      "lat": 34.261,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "2024徐州市家装家居购置补贴活动产品品类又增加",
+      "link": "https://xz.bendibao.com/gouwu/2024126/67040.shtm",
+      "category": "徐州本地",
+      "poi_name": "华润万家(徐州店)",
+      "address": "徐州市泉山区",
+      "lng": 117.19,
+      "lat": 34.255,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州旧房改造装修购置补贴申请地址+电话",
+      "link": "https://xz.bendibao.com/gouwu/2024124/67017.shtm",
+      "category": "徐州本地",
+      "poi_name": "金鹰国际购物中心(彭城店)",
+      "address": "徐州市鼓楼区中山北路",
+      "lng": 117.185,
+      "lat": 34.262,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州市旧房装修、厨卫等局部改造补贴材料下载",
+      "link": "https://xz.bendibao.com/gouwu/2024124/67016.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州云龙万达广场",
+      "address": "徐州市云龙区和平大道",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州市旧房装修、厨卫等局部改造补贴范围",
+      "link": "https://xz.bendibao.com/gouwu/2024124/67015.shtm",
+      "category": "徐州本地",
+      "poi_name": "云龙湖风景区",
+      "address": "徐州市泉山区",
+      "lng": 117.155,
+      "lat": 34.228,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "江苏徐州买手机补贴怎么领",
+      "link": "https://xz.bendibao.com/gouwu/2024123/66989.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州环球港",
+      "address": "徐州市经济技术开发区",
+      "lng": 117.32,
+      "lat": 34.275,
+      "source": "徐州本地宝·购物优惠"
+    },
+    {
+      "title": "徐州元旦活动安排汇总2026年",
+      "link": "https://xz.bendibao.com/news/20231214/62538.shtm",
+      "category": "徐州本地",
+      "poi_name": "永辉超市(徐州店)",
+      "address": "徐州市云龙区",
+      "lng": 117.22,
+      "lat": 34.245,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年苏超徐州VS南京比赛期间徐州消费券领取时间+入口",
+      "link": "https://xz.bendibao.com/news/202672/73050.shtm",
+      "category": "徐州本地",
+      "poi_name": "大润发(南关欣欣店)",
+      "address": "徐州市云龙区欣欣路",
+      "lng": 117.245,
+      "lat": 34.235,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年徐州惠民售书消费券有哪些门店活动",
+      "link": "https://xz.bendibao.com/news/202672/73049.shtm",
+      "category": "徐州本地",
+      "poi_name": "铜山万达广场",
+      "address": "徐州市铜山区北京路",
+      "lng": 117.183,
+      "lat": 34.183,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年徐州惠民售书消费券集中活动",
+      "link": "https://xz.bendibao.com/news/202672/73048.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州彭城苏宁广场",
+      "address": "徐州市泉山区",
+      "lng": 117.175,
+      "lat": 34.255,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "2026年苏超徐州VS南京比赛期间徐州消费券活动",
+      "link": "https://xz.bendibao.com/news/202672/73047.shtm",
+      "category": "徐州本地",
+      "poi_name": "徐州彭城苏宁广场",
+      "address": "徐州市泉山区",
+      "lng": 117.175,
+      "lat": 34.255,
+      "source": "徐州本地宝·本地资讯"
+    },
     {
       "title": "1评云闪付2-0.99多张",
       "link": "https://www.0818tuan.com/xbhd/2718620.html",
@@ -18,28 +218,38 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "08:35 今天的暗号：任意球 【京东】对暗号抽超市卡 7.3号答案：足球搭子有",
-      "link": "https://www.0818tuan.com/xbhd/2718917.html",
+      "title": "10:57 参半简约高密软毛牙刷2支 拍下18.9亓 反9超市卡 到手9.9亓 赠",
+      "link": "https://www.0818tuan.com/xbhd/2718988.html",
       "category": "连锁超市",
-      "poi_name": "徐州彭城苏宁广场",
-      "address": "徐州市泉山区",
-      "lng": 117.175,
-      "lat": 34.255,
+      "poi_name": "徐州云龙万达广场",
+      "address": "徐州市云龙区和平大道",
+      "lng": 117.251,
+      "lat": 34.253,
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "07-11 08:35 今天的暗号：任意球 【京东】对暗号抽超市卡 7.3号答案：足球搭子有",
-      "link": "https://www.0818tuan.com/xbhd/2718917.html",
+      "title": "07-11 10:57 参半简约高密软毛牙刷2支 拍下18.9亓 反9超市卡 到手9.9亓 赠",
+      "link": "https://www.0818tuan.com/xbhd/2718988.html",
       "category": "连锁超市",
-      "poi_name": "大润发(南关欣欣店)",
-      "address": "徐州市云龙区欣欣路",
-      "lng": 117.245,
-      "lat": 34.235,
+      "poi_name": "徐州奥特莱斯",
+      "address": "徐州市泉山区",
+      "lng": 117.14,
+      "lat": 34.24,
       "source": "0818团·首页热榜"
     },
     {
-      "title": "08:46 先领2张补帖卷（限.量） 【自营】京东养車 净护双享套餐 洗車*2 杀",
-      "link": "https://www.0818tuan.com/xbhd/2718920.html",
+      "title": "10:40 美团会员多选一",
+      "link": "https://www.0818tuan.com/xbhd/2718977.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "10:28 点去首页-淘宝秒杀拍23亓 白象 方便面桶装泡面12桶",
+      "link": "https://www.0818tuan.com/xbhd/2718972.html",
       "category": "吃喝玩乐",
       "poi_name": "海底捞(苏宁店)",
       "address": "徐州市鼓楼区淮海东路苏宁广场",
@@ -48,7 +258,37 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "08:10 功夫女足电影优惠，省8元",
+      "title": "10:23 农行当时划龙舟 中奖的这个必胜客。现在找不到了。",
+      "link": "https://www.0818tuan.com/xbhd/2718971.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "09:52 10点 早鸟价 1亓抢 秒杀",
+      "link": "https://www.0818tuan.com/xbhd/2718953.html",
+      "category": "吃喝玩乐",
+      "poi_name": "云龙湖风景区",
+      "address": "徐州市泉山区",
+      "lng": 117.155,
+      "lat": 34.228,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "09:51 自然堂男洁面如120g 收藏 秒杀会场加购 部分标题下有10支付卷",
+      "link": "https://www.0818tuan.com/xbhd/2718952.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "1评功夫女足电影优惠，省8元",
       "link": "https://www.0818tuan.com/xbhd/2718908.html",
       "category": "吃喝玩乐",
       "poi_name": "徐州金逸影城(万达店)",
@@ -58,8 +298,8 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "07-11 08:46 先领2张补帖卷（限.量） 【自营】京东养車 净护双享套餐 洗車*2 杀",
-      "link": "https://www.0818tuan.com/xbhd/2718920.html",
+      "title": "07-11 10:40 美团会员多选一",
+      "link": "https://www.0818tuan.com/xbhd/2718977.html",
       "category": "吃喝玩乐",
       "poi_name": "徐州彭城美食广场",
       "address": "徐州市鼓楼区",
@@ -68,34 +308,14 @@
       "source": "0818团·首页热榜"
     },
     {
-      "title": "07-11 08:10 功夫女足电影优惠，省8元",
-      "link": "https://www.0818tuan.com/xbhd/2718908.html",
+      "title": "07-11 10:28 点去首页-淘宝秒杀拍23亓 白象 方便面桶装泡面12桶",
+      "link": "https://www.0818tuan.com/xbhd/2718972.html",
       "category": "吃喝玩乐",
-      "poi_name": "徐州金逸影城(万达店)",
-      "address": "徐州市云龙区万达广场",
-      "lng": 117.251,
-      "lat": 34.253,
+      "poi_name": "徐州彭城美食广场",
+      "address": "徐州市鼓楼区",
+      "lng": 117.192,
+      "lat": 34.26,
       "source": "0818团·首页热榜"
-    },
-    {
-      "title": "国家补贴：科龙 KFR-72GW/GK3D-X1 新一级能效 壁挂式空调 3匹 2887.45元（需用券）",
-      "link": "https://www.smzdm.com/p/178321360/",
-      "category": "全国羊毛",
-      "poi_name": "大润发(东关世茂店)",
-      "address": "徐州市云龙区郭庄路99号",
-      "lng": 117.298,
-      "lat": 34.272,
-      "source": "什么值得买·优惠精选"
-    },
-    {
-      "title": "东方港湾 原切牛肉卷 净重1斤 牛肉片肥牛卷火锅食材烧烤涮肉煮食材 29.41元（需买3件，共88.23元）",
-      "link": "https://www.smzdm.com/p/178333083/",
-      "category": "全国羊毛",
-      "poi_name": "云龙湖风景区",
-      "address": "徐州市泉山区",
-      "lng": 117.155,
-      "lat": 34.228,
-      "source": "什么值得买·优惠精选"
     },
     {
       "title": "皇家小虎 经典烤肠牛肉卷蛋挞生鲜美食 任选5件组合装",
@@ -118,33 +338,33 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "08:18 厦门工行报名就得1.66元立减金还有80%名额",
-      "link": "https://www.0818tuan.com/xbhd/2718910.html",
+      "title": "10:12 我的-会员中心-领猫超39-6洪包 超级补贴找到商品，拍下35.4亓 福临",
+      "link": "https://www.0818tuan.com/xbhd/2718963.html",
       "category": "全国羊毛",
-      "poi_name": "大润发(西关建国店)",
-      "address": "徐州市泉山区建国西路",
-      "lng": 117.157,
-      "lat": 34.268,
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "07:54 近期羊毛",
-      "link": "https://www.0818tuan.com/xbhd/2718903.html",
+      "title": "10:08 普大喜奔积分兑立减金，比例2000:1",
+      "link": "https://www.0818tuan.com/xbhd/2718961.html",
       "category": "全国羊毛",
-      "poi_name": "徐州奥特莱斯",
-      "address": "徐州市泉山区",
-      "lng": 117.14,
-      "lat": 34.24,
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "07:36 支付宝网商消费红包",
-      "link": "https://www.0818tuan.com/xbhd/2718898.html",
+      "title": "09:48 京东红包",
+      "link": "https://www.0818tuan.com/xbhd/2718950.html",
       "category": "全国羊毛",
-      "poi_name": "永辉超市(徐州店)",
-      "address": "徐州市云龙区",
-      "lng": 117.22,
-      "lat": 34.245,
+      "poi_name": "铜山万达广场",
+      "address": "徐州市铜山区北京路",
+      "lng": 117.183,
+      "lat": 34.183,
       "source": "0818团·实测线报(博主)"
     },
     {
@@ -175,26 +395,6 @@
       "address": "徐州市经济技术开发区",
       "lng": 117.32,
       "lat": 34.275,
-      "source": "0818团·首页热榜"
-    },
-    {
-      "title": "07-11 08:18 厦门工行报名就得1.66元立减金还有80%名额",
-      "link": "https://www.0818tuan.com/xbhd/2718910.html",
-      "category": "全国羊毛",
-      "poi_name": "云龙湖风景区",
-      "address": "徐州市泉山区",
-      "lng": 117.155,
-      "lat": 34.228,
-      "source": "0818团·首页热榜"
-    },
-    {
-      "title": "07-11 07:54 近期羊毛",
-      "link": "https://www.0818tuan.com/xbhd/2718903.html",
-      "category": "全国羊毛",
-      "poi_name": "金地商都",
-      "address": "徐州市鼓楼区中山北路",
-      "lng": 117.188,
-      "lat": 34.264,
       "source": "0818团·首页热榜"
     }
   ]
