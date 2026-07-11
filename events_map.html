@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>徐州周边突发地图 · Mogu AI</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #222; }
+    #header { background: linear-gradient(135deg, #cf1322, #820014); color: #fff; padding: 14px 16px 12px; }
+    #header h1 { font-size: 18px; font-weight: 600; }
+    #header p { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+    #filters { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; background: #fff; border-bottom: 1px solid #eee; }
+    .filter-chip { font-size: 11px; padding: 4px 10px; border-radius: 14px; border: 1px solid #ddd; cursor: pointer; background: #fff; }
+    .filter-chip.off { opacity: 0.4; }
+    #status { padding: 10px 16px; font-size: 13px; background: #fff; border-bottom: 1px solid #eee; }
+    #map { width: 100%; height: 48vh; min-height: 260px; background: #e8ecf1; }
+    #list { padding: 12px 16px 24px; }
+    .card { background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border-left: 4px solid #cf1322; }
+    .card .title { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+    .card .meta { font-size: 12px; color: #666; }
+    .card .dist { color: #cf1322; font-weight: 600; }
+    .tag { display: inline-block; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-right: 4px; background: #fff1f0; color: #cf1322; }
+    .empty, .legend { text-align: center; color: #999; padding: 16px; font-size: 13px; }
+    .legend { padding-top: 0; font-size: 11px; }
+    .error { color: #cf1322; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>⚠️ 徐州周边突发地图</h1>
+    <p id="subtitle">车祸 · 警情 · 火灾 · 急救 · 集会</p>
+  </div>
+  <div id="filters"></div>
+  <div class="legend">* 位置根据新闻标题区县/地标估算，仅供参考，非实时 GPS</div>
+  <div id="status">正在加载…</div>
+  <div id="map"></div>
+  <div id="list"><h2 style="font-size:15px;margin-bottom:10px">附近突发</h2><div id="event-list"></div></div>
+  <script src="map_config.js"></script>
+  <script>
+    (function () {
+      var cfg = window.MOGU_MAP_CONFIG || {}, RADIUS_KM = 10, map, markers = [], userPos, eventsData = {}, activeTypes = {};
+      function escapeHtml(s) { return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+      function haversineKm(a,b,c,d){var R=6371,x=(c-a)*Math.PI/180,y=(d-b)*Math.PI/180,z=Math.sin(x/2)**2+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(y/2)**2;return R*2*Math.atan2(Math.sqrt(z),Math.sqrt(1-z));}
+      function setStatus(m,e){document.getElementById("status").textContent=m;document.getElementById("status").className=e?"error":"";}
+      function buildFilters(){var box=document.getElementById("filters"),types=eventsData.event_types||{};box.innerHTML=Object.keys(types).map(function(k){activeTypes[k]=true;var t=types[k];return '<button type="button" class="filter-chip" data-type="'+k+'">'+escapeHtml(t.icon+" "+t.label)+'</button>';}).join("");box.querySelectorAll(".filter-chip").forEach(function(chip){chip.onclick=function(){var k=chip.getAttribute("data-type");activeTypes[k]=!activeTypes[k];chip.classList.toggle("off",!activeTypes[k]);refresh();};});}
+      function nearby(){var lat=userPos[1],lng=userPos[0];return (eventsData.events||[]).map(function(e){return Object.assign({},e,{distance:haversineKm(lat,lng,e.lat,e.lng)*1000});}).filter(function(e){return e.distance<=RADIUS_KM*1000&&activeTypes[e.event_type]!==false;}).sort(function(a,b){return a.distance-b.distance;});}
+      function renderList(items){var el=document.getElementById("event-list");if(!items.length){el.innerHTML='<div class="empty">附近 '+RADIUS_KM+' 公里内暂无突发资讯</div>';return;}el.innerHTML=items.map(function(e){return '<div class="card" style="border-left-color:'+escapeHtml(e.marker_color)+'"><div class="title">'+escapeHtml(e.event_icon+" "+e.title)+'</div><div class="meta"><span class="tag">'+escapeHtml(e.event_label)+'</span> <span class="dist">'+e.distance.toFixed(0)+' 米</span> · '+escapeHtml(e.poi_name)+'</div>'+(e.link?'<div style="margin-top:8px"><a href="'+escapeHtml(e.link)+'" style="color:#cf1322">查看详情 →</a></div>':'')+'</div>';}).join("");}
+      function showOnMap(items,center){markers.forEach(function(m){map.remove(m);});markers=[];items.forEach(function(e){var m=new AMap.Marker({position:[e.lng,e.lat],content:'<div style="width:30px;height:30px;border-radius:50%;background:'+e.marker_color+';color:#fff;font-size:15px;line-height:30px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.3)">'+escapeHtml(e.event_icon)+'</div>'});m.on("click",function(){new AMap.InfoWindow({content:'<div style="padding:8px;max-width:220px"><b>'+escapeHtml(e.event_label)+'</b><br/>'+escapeHtml(e.title)+'<br/>'+e.distance.toFixed(0)+'米</div>'}).open(map,[e.lng,e.lat]);});map.add(m);markers.push(m);});var c=new AMap.Circle({center:center,radius:RADIUS_KM*1000,strokeColor:"#cf1322",fillColor:"#cf1322",fillOpacity:0.06});map.add(c);markers.push(c);if(items.length)map.setFitView(markers,false,[40,40,40,40]);}
+      function refresh(){var items=nearby();setStatus("显示 "+RADIUS_KM+" 公里内 "+items.length+" 条突发");renderList(items);showOnMap(items,userPos);}
+      function run(pos){userPos=pos;map=new AMap.Map("map",{zoom:14,center:pos});new AMap.Marker({position:pos,icon:"https://webapi.amap.com/theme/v1.3/markers/n/loc.png"}).setMap(map);buildFilters();refresh();}
+      function load(cb){if(window.AMap)return cb();window._AMapSecurityConfig={securityJsCode:cfg.securityJsCode||""};var s=document.createElement("script");s.src="https://webapi.amap.com/maps?v=2.0&key="+encodeURIComponent(cfg.amapKey);s.onload=cb;document.head.appendChild(s);}
+      fetch("events_today.json?t="+Date.now()).then(function(r){return r.json();}).then(function(data){eventsData=data;RADIUS_KM=data.radius_km||10;document.getElementById("subtitle").textContent=RADIUS_KM+" 公里内 · 车祸/警情/火灾/急救等";load(function(){if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(p){run([p.coords.longitude,p.coords.latitude]);},function(){var c=data.center||{lng:117.184,lat:34.261};run([c.lng,c.lat]);});}else{var c=data.center||{lng:117.184,lat:34.261};run([c.lng,c.lat]);}});}).catch(function(e){setStatus("加载失败: "+e.message,true);});
+    })();
+  </script>
+</body>
+</html>
