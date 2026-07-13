@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12 21:00",
+  "updated": "2026-07-13 15:00",
   "city": "徐州",
   "center": {
     "lng": 117.184,
@@ -7,6 +7,19 @@
   },
   "radius_km": 10,
   "events": [
+    {
+      "title": "2026徐州云龙湖第三届城市欢乐跑交通管制措施",
+      "link": "http://xz.bendibao.com/news/2026514/72422.shtm",
+      "event_type": "rally",
+      "event_label": "集会活动",
+      "event_icon": "📢",
+      "marker_color": "#722ed1",
+      "poi_name": "云龙湖风景区",
+      "address": "徐州市泉山区",
+      "lng": 117.155,
+      "lat": 34.228,
+      "source": "徐州本地宝·本地资讯"
+    },
     {
       "title": "徐州轻微交通事故线上视频快处指南",
       "link": "http://xz.bendibao.com/live/2025317/67855.shtm",
