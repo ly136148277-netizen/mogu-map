@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13 11:00",
+  "updated": "2026-07-14 11:00",
   "city": "徐州",
   "center": {
     "lng": 117.184,
@@ -158,54 +158,84 @@
       "source": "徐州本地宝·购物优惠"
     },
     {
-      "title": "10:36 领300-50消费券 欧亚全脂纯牛奶200g*20盒 凑后29.7亓",
-      "link": "https://www.0818tuan.com/xbhd/2719702.html",
+      "title": "徐州元旦活动安排汇总2026年",
+      "link": "https://xz.bendibao.com/news/20231214/62538.shtm",
       "category": "徐州本地",
-      "poi_name": "海底捞(苏宁店)",
-      "address": "徐州市鼓楼区淮海东路苏宁广场",
-      "lng": 117.186,
-      "lat": 34.261,
+      "poi_name": "永辉超市(徐州店)",
+      "address": "徐州市云龙区",
+      "lng": 117.22,
+      "lat": 34.245,
+      "source": "徐州本地宝·本地资讯"
+    },
+    {
+      "title": "11:00 参半酵素牙膏洁白亮白120g 任选18.9亓 反9超市卡 到手9.9亓",
+      "link": "https://www.0818tuan.com/xbhd/2720150.html",
+      "category": "连锁超市",
+      "poi_name": "徐州宝龙广场",
+      "address": "徐州市云龙区",
+      "lng": 117.23,
+      "lat": 34.248,
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "07-13 10:36 领300-50消费券 欧亚全脂纯牛奶200g*20盒 凑后29.7亓",
-      "link": "https://www.0818tuan.com/xbhd/2719702.html",
-      "category": "徐州本地",
-      "poi_name": "海底捞(苏宁店)",
-      "address": "徐州市鼓楼区淮海东路苏宁广场",
-      "lng": 117.186,
-      "lat": 34.261,
-      "source": "0818团·首页热榜"
-    },
-    {
-      "title": "10:07 安井火锅丸子全家福400g×3袋 金币页面拍18.4亓",
-      "link": "https://www.0818tuan.com/xbhd/2719683.html",
-      "category": "吃喝玩乐",
-      "poi_name": "徐州金逸影城(万达店)",
-      "address": "徐州市云龙区万达广场",
-      "lng": 117.251,
-      "lat": 34.253,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "2评一部电影罢了，这也能起内讧",
-      "link": "https://www.0818tuan.com/xbhd/2719435.html",
-      "category": "吃喝玩乐",
-      "poi_name": "徐州金逸影城(万达店)",
-      "address": "徐州市云龙区万达广场",
-      "lng": 117.251,
-      "lat": 34.253,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "移动端：『家纺洗护』1件床单/被罩全城免费上门取送 29元",
-      "link": "https://www.smzdm.com/p/178463595/",
-      "category": "全国羊毛",
+      "title": "07-14 11:00 参半酵素牙膏洁白亮白120g 任选18.9亓 反9超市卡 到手9.9亓",
+      "link": "https://www.0818tuan.com/xbhd/2720150.html",
+      "category": "连锁超市",
       "poi_name": "沃尔玛(徐州解放路店)",
       "address": "徐州市云龙区解放路",
       "lng": 117.195,
       "lat": 34.258,
-      "source": "什么值得买·优惠精选"
+      "source": "0818团·首页热榜"
+    },
+    {
+      "title": "10:46 百草味一口芒果条80g选项 tb会员中心 部分有5折券 复制标题淘宝秒杀拍",
+      "link": "https://www.0818tuan.com/xbhd/2720146.html",
+      "category": "吃喝玩乐",
+      "poi_name": "海底捞(苏宁店)",
+      "address": "徐州市鼓楼区淮海东路苏宁广场",
+      "lng": 117.186,
+      "lat": 34.261,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "10:26 看个30块的破电影都要让人知道一下",
+      "link": "https://www.0818tuan.com/xbhd/2720137.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "1评看个30块的破电影都要让人知道一下",
+      "link": "https://www.0818tuan.com/xbhd/2720137.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·实测线报(博主)"
+    },
+    {
+      "title": "07-14 10:46 百草味一口芒果条80g选项 tb会员中心 部分有5折券 复制标题淘宝秒杀拍",
+      "link": "https://www.0818tuan.com/xbhd/2720146.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·首页热榜"
+    },
+    {
+      "title": "07-14 10:26 看个30块的破电影都要让人知道一下",
+      "link": "https://www.0818tuan.com/xbhd/2720137.html",
+      "category": "吃喝玩乐",
+      "poi_name": "徐州金逸影城(万达店)",
+      "address": "徐州市云龙区万达广场",
+      "lng": 117.251,
+      "lat": 34.253,
+      "source": "0818团·首页热榜"
     },
     {
       "title": "皇家小虎 经典烤肠牛肉卷蛋挞生鲜美食 任选5件组合装",
@@ -228,68 +258,8 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "10:58 Arale无蔗糖坚果茯苓八珍糕300克 如砸5奍弹3立减叠1首单2.5亓",
-      "link": "https://www.0818tuan.com/xbhd/2719713.html",
-      "category": "全国羊毛",
-      "poi_name": "徐州宝龙广场",
-      "address": "徐州市云龙区",
-      "lng": 117.23,
-      "lat": 34.248,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:46 掉落或领券中心3.1-3家清券 叠1首单付0.5亓 植护苹果铃兰香水洗",
-      "link": "https://www.0818tuan.com/xbhd/2719708.html",
-      "category": "全国羊毛",
-      "poi_name": "徐州宝龙广场",
-      "address": "徐州市云龙区",
-      "lng": 117.23,
-      "lat": 34.248,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:37 5.1-5母婴券 掉落或领券中心10.1-10母婴券 app搜标题或",
-      "link": "https://www.0818tuan.com/xbhd/2719704.html",
-      "category": "全国羊毛",
-      "poi_name": "云龙湖风景区",
-      "address": "徐州市泉山区",
-      "lng": 117.155,
-      "lat": 34.228,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:21 京东秤返现，打卡报名地址",
-      "link": "https://www.0818tuan.com/xbhd/2719695.html",
-      "category": "全国羊毛",
-      "poi_name": "海底捞(苏宁店)",
-      "address": "徐州市鼓楼区淮海东路苏宁广场",
-      "lng": 117.186,
-      "lat": 34.261,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:18 招行体验金红包4个",
-      "link": "https://www.0818tuan.com/xbhd/2719693.html",
-      "category": "全国羊毛",
-      "poi_name": "沃尔玛(徐州解放路店)",
-      "address": "徐州市云龙区解放路",
-      "lng": 117.195,
-      "lat": 34.258,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:16 速度!建行1-66V.x立减金",
-      "link": "https://www.0818tuan.com/xbhd/2719692.html",
-      "category": "全国羊毛",
-      "poi_name": "徐州奥特莱斯",
-      "address": "徐州市泉山区",
-      "lng": 117.14,
-      "lat": 34.24,
-      "source": "0818团·实测线报(博主)"
-    },
-    {
-      "title": "10:11 工行答题红包，4毛答案:BBAC",
-      "link": "https://www.0818tuan.com/xbhd/2719688.html",
+      "title": "10:50 摇优惠已累计节省882.6",
+      "link": "https://www.0818tuan.com/xbhd/2720147.html",
       "category": "全国羊毛",
       "poi_name": "麦德龙(徐州店)",
       "address": "徐州市鼓楼区",
@@ -298,13 +268,13 @@
       "source": "0818团·实测线报(博主)"
     },
     {
-      "title": "10:04 原价60用了优惠的火车票改签 成50的以后退多少",
-      "link": "https://www.0818tuan.com/xbhd/2719681.html",
+      "title": "1评摇优惠已累计节省882.6",
+      "link": "https://www.0818tuan.com/xbhd/2720147.html",
       "category": "全国羊毛",
-      "poi_name": "沃尔玛(徐州解放路店)",
-      "address": "徐州市云龙区解放路",
-      "lng": 117.195,
-      "lat": 34.258,
+      "poi_name": "金鹰国际购物中心(彭城店)",
+      "address": "徐州市鼓楼区中山北路",
+      "lng": 117.185,
+      "lat": 34.262,
       "source": "0818团·实测线报(博主)"
     },
     {
@@ -318,33 +288,13 @@
       "source": "0818团·首页热榜"
     },
     {
-      "title": "07-13 10:58 Arale无蔗糖坚果茯苓八珍糕300克 如砸5奍弹3立减叠1首单2.5亓",
-      "link": "https://www.0818tuan.com/xbhd/2719713.html",
+      "title": "07-14 10:50 摇优惠已累计节省882.6",
+      "link": "https://www.0818tuan.com/xbhd/2720147.html",
       "category": "全国羊毛",
-      "poi_name": "徐州宝龙广场",
-      "address": "徐州市云龙区",
-      "lng": 117.23,
-      "lat": 34.248,
-      "source": "0818团·首页热榜"
-    },
-    {
-      "title": "07-13 10:46 掉落或领券中心3.1-3家清券 叠1首单付0.5亓 植护苹果铃兰香水洗",
-      "link": "https://www.0818tuan.com/xbhd/2719708.html",
-      "category": "全国羊毛",
-      "poi_name": "徐州宝龙广场",
-      "address": "徐州市云龙区",
-      "lng": 117.23,
-      "lat": 34.248,
-      "source": "0818团·首页热榜"
-    },
-    {
-      "title": "07-13 10:37 5.1-5母婴券 掉落或领券中心10.1-10母婴券 app搜标题或",
-      "link": "https://www.0818tuan.com/xbhd/2719704.html",
-      "category": "全国羊毛",
-      "poi_name": "云龙湖风景区",
-      "address": "徐州市泉山区",
-      "lng": 117.155,
-      "lat": 34.228,
+      "poi_name": "金鹰国际购物中心(彭城店)",
+      "address": "徐州市鼓楼区中山北路",
+      "lng": 117.185,
+      "lat": 34.262,
       "source": "0818团·首页热榜"
     }
   ]
