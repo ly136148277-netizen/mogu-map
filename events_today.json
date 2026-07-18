@@ -1,26 +1,12 @@
 {
-  "updated": "2026-07-18 09:00",
+  "updated": "2026-07-18 15:00",
   "city": "徐州",
   "center": {
     "lng": 117.184,
     "lat": 34.261
   },
   "radius_km": 10,
-  "events": [
-    {
-      "title": "徐州轻微交通事故线上视频快处指南",
-      "link": "http://xz.bendibao.com/live/2025317/67855.shtm",
-      "event_type": "traffic",
-      "event_label": "交通事故",
-      "event_icon": "🚗",
-      "marker_color": "#fa8c16",
-      "poi_name": "丰县",
-      "address": "徐州市（标题未精确到地标，仅供参考）",
-      "lng": 116.595,
-      "lat": 34.694,
-      "source": "徐州本地宝·民生"
-    }
-  ],
+  "events": [],
   "event_types": {
     "traffic": {
       "label": "交通事故",
